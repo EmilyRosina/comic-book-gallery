@@ -1,45 +1,29 @@
 ﻿@{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Comic Book Detail";
 }
 
-<!DOCTYPE html>
+<h1>@ViewBag.SeriesTitle</h1>
+<h2>Issue #@ViewBag.IssueNumber</h2>
 
-<html>
+<h5>Description</h5>
+<div>
+    <p>@Html.Raw(ViewBag.Description)</p>
+</div>
 
-    <head>
-        <meta name="viewport" content="width=device-width" />
-        <title>My Site</title>
-    </head>
-
-<body>
-    <div>
-        <h1>@ViewBag.SeriesTitle</h1>
-        <h2>Issue #@ViewBag.IssueNumber</h2>
-
-        <h5>Description</h5>
-        <div>
-            <p>@Html.Raw(ViewBag.Description)</p>
-        </div>
-
-        @if (ViewBag.Artists.Length > 0)
-        {<h5>Artists</h5>
-        <div>
-            @foreach (var artist in ViewBag.Artists)
-            {
-                if (@artist.Contains("Dan"))
-                {
-                    <p style="color: red;">@artist</p>
-                }
-                else
-                {
-                <p>@artist</p>
-                }
-            }
-        </div>
+@if (ViewBag.Artists.Length > 0)
+{<h5>Artists</h5>
+<div>
+    @foreach (var artist in ViewBag.Artists)
+    {
+        if (@artist.Contains("Dan"))
+        {
+            <p style="color: red;">@artist</p>
         }
-    </div>
-</body>
-
-
-
-</html>
+        else
+        {
+        <p>@artist</p>
+        }
+    }
+</div>
+}
