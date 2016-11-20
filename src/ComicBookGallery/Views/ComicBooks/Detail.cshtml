@@ -1,5 +1,17 @@
 ﻿@{
     Layout = null;
+
+    var seriesTitle = "The Amazing Spider-Man";
+    var issueNumber = 700;
+    var description = "Final issue! Witness the final hours of Doctor Octopus' life and his one, last, great act of revenge! Even if Spider-Man survives... <strong>will Peter Parker?</strong>";
+    var artists = new String[]
+    {
+        "Script: Dan Slott",
+        "Pencils: Humberto Ramos",
+        "Inks: Victor Olazaba",
+        "Colors: Edgar Delgado",
+        "Letters: Chris Eliopoulos"
+    };
 }
 
 <!DOCTYPE html>
@@ -11,10 +23,35 @@
         <title>My Site</title>
     </head>
 
-    <body>
+<body>
+    <div>
+        <h1>@seriesTitle</h1>
+        <h2>Issue #@issueNumber</h2>
+
+        <h5>Description</h5>
         <div>
-            <h1>Hello from the other side (of the view)!</h1>
+            <p>@Html.Raw(description)</p>
         </div>
-    </body>
+
+        @if (artists.Length > 0)
+        {<h5>Artists</h5>
+        <div>
+            @foreach (var artist in artists)
+            {
+                if (@artist.Contains("Dan"))
+                {
+                    <p style="color: red;">@artist</p>
+                }
+                else
+                {
+                <p>@artist</p>
+                }
+            }
+        </div>
+        }
+    </div>
+</body>
+
+
 
 </html>
