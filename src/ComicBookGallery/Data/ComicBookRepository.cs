@@ -59,9 +59,9 @@ namespace ComicBookGallery.Data
             }
     };
 
-        public int GetTotalComicBooks()
+        public ComicBook[] GetAllComicBooks()
         {
-            return _comicBooks.Length;
+            return _comicBooks;
         }
 
         public ComicBook GetComicBook(int Id)
