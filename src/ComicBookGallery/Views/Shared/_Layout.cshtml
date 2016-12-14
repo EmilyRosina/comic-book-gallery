@@ -26,16 +26,24 @@
             </div>
         </div>
     </div>
+    @if (ViewBag.Show_backbar != null && ViewBag.Show_backbar)
+    {
+        <div class="backbar">
+            <div class="container">
+                @Html.ActionLink("Return to List", "Index", "ComicBooks", new { area = "" }, new { @class = "btn btn-default" })
+            </div>
+        </div>
+    }
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Comic Book Gallery</p>
-        </footer>
-    </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Comic Book Gallery</p>
+            </footer>
+        </div>
 
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-</body>
+        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+    </body>
 </html>
